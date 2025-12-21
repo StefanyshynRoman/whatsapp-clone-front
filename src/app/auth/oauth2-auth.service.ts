@@ -51,7 +51,7 @@ export class Oauth2AuthService {
       flow: "standard",
       onLoad: "check-sso",
       redirectUri: "http://localhost:4200/",
-      silentCheckSsoRedirectUri: window.location.origin + "/assets/silentCheckSsoRedirectUri.html",
+     // silentCheckSsoRedirectUri: window.location.origin + "/assets/silentCheckSsoRedirectUri.html",
     }))
       .subscribe(isAuthenticated => {
         if (isAuthenticated) {
