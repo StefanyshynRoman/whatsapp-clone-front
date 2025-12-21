@@ -9,7 +9,7 @@ import {catchError, from, interval, Observable, of, shareReplay, Subject, switch
 import {fromPromise} from "rxjs/internal/observable/innerFrom";
 import {AuthModalComponent} from "./auth-modal/auth-modal.component";
 import dayjs, {Dayjs} from "dayjs";
-import {SseService} from "../messages/service/sse.service";
+//import {SseService} from "../messages/service/sse.service";
 import {environment} from '../environments/environment';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class Oauth2AuthService {
 
   http = inject(HttpClient);
   modalService = inject(NgbModal);
-  sseService = inject(SseService);
+ // sseService = inject(SseService);
 
   notConnected = "NOT_CONNECTED";
 
@@ -61,7 +61,7 @@ export class Oauth2AuthService {
           if (this.authModalRef) {
             this.authModalRef.close();
           }
-          this.sseService.subscribe(this.accessToken!);
+         // this.sseService.subscribe(this.accessToken!);
         } else {
           this.authModalRef = this.modalService
             .open(AuthModalComponent, {centered: true, backdrop: "static"});
