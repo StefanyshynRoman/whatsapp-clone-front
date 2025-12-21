@@ -9,11 +9,13 @@ import {
 import {FaIconComponent, FaIconLibrary} from '@fortawesome/angular-fontawesome';
 import {fontAwesomeIcons} from './shared/font-awesome-icons';
 import {Oauth2AuthService} from './auth/oauth2-auth.service';
+import {AuthModalComponent} from './auth/auth-modal/auth-modal.component';
+import {NavbarComponent} from './layout/navbar/navbar.component';
 
 @Component({
   selector: 'wac-root',
   standalone: true,
-  imports: [RouterOutlet, NgbAccordionDirective, NgbAccordionItem, NgbAccordionHeader, NgbAccordionBody, NgbAccordionCollapse, NgbAccordionButton, FaIconComponent],
+  imports: [RouterOutlet, NgbAccordionDirective, NgbAccordionItem, NgbAccordionHeader, NgbAccordionBody, NgbAccordionCollapse, NgbAccordionButton, FaIconComponent, AuthModalComponent, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
