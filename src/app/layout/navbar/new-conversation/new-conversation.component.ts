@@ -32,7 +32,7 @@ export class NewConversationComponent implements OnInit, OnDestroy {
   searchPage: Pagination = {
     page: 0,
     size: 20,
-    sort: ["firstName, ASC"]
+    sort: ["firstName,ASC"]
   }
   loadingSearch = true;
   searchSubscription: Subscription | undefined;

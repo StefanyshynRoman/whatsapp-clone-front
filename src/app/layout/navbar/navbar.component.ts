@@ -9,6 +9,7 @@ import {
   NgbDropdownToggle,
   NgbOffcanvas
 } from '@ng-bootstrap/ng-bootstrap';
+import {NewConversationComponent} from './new-conversation/new-conversation.component';
 
 @Component({
   selector: 'wac-navbar',
@@ -26,6 +27,7 @@ import {
 export class NavbarComponent {
   oauth2Service = inject(Oauth2AuthService);
   connectedUser: ConnectedUser | undefined;
+  offCanvasService = inject(NgbOffcanvas);
 
   constructor() {
     this.listenToFetchUser();
@@ -50,11 +52,9 @@ export class NavbarComponent {
     this.oauth2Service.goToProfilePage();
   }
 
-  // openNewConversation() {
-  //   this.offCanvasService.open(NewConversationComponent,
-  //     {position: "start", container: "#main", panelClass: "offcanvas"})
-  // }
   openNewConversation() {
-
+    this.offCanvasService.open(NewConversationComponent,
+      {position: "start", container: "#main", panelClass: "offcanvas"})
   }
+
 }
