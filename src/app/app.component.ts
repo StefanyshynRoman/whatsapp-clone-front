@@ -4,18 +4,19 @@ import {
   NgbAccordionBody, NgbAccordionButton, NgbAccordionCollapse,
   NgbAccordionDirective,
   NgbAccordionHeader,
-  NgbAccordionItem
+  NgbAccordionItem, NgbToast
 } from '@ng-bootstrap/ng-bootstrap';
 import {FaIconComponent, FaIconLibrary} from '@fortawesome/angular-fontawesome';
 import {fontAwesomeIcons} from './shared/font-awesome-icons';
 import {Oauth2AuthService} from './auth/oauth2-auth.service';
 import {AuthModalComponent} from './auth/auth-modal/auth-modal.component';
 import {NavbarComponent} from './layout/navbar/navbar.component';
+import {ToastService} from './shared/toast/toast.service';
 
 @Component({
   selector: 'wac-root',
   standalone: true,
-  imports: [RouterOutlet, NgbAccordionDirective, NgbAccordionItem, NgbAccordionHeader, NgbAccordionBody, NgbAccordionCollapse, NgbAccordionButton, FaIconComponent, AuthModalComponent, NavbarComponent],
+  imports: [RouterOutlet, NgbAccordionDirective, NgbAccordionItem, NgbAccordionHeader, NgbAccordionBody, NgbAccordionCollapse, NgbAccordionButton, FaIconComponent, AuthModalComponent, NavbarComponent, NgbToast],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit {
 
   private faIconLibrary = inject(FaIconLibrary);
   private oauth2Service = inject(Oauth2AuthService);
+   toastService = inject(ToastService);
 
   ngOnInit(): void {
     this.initFontAwesome();

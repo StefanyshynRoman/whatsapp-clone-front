@@ -6,11 +6,17 @@ import {BaseUser} from '../../../shared/model/user.model';
 import {Pagination} from '../../../shared/model/state.model';
 import {Subscription} from 'rxjs';
 import {SearchQuery} from './model/user-search.model';
+import {FaIconComponent} from '@fortawesome/angular-fontawesome';
+import {FormsModule} from '@angular/forms';
+import {ConversationSelectorComponent} from './conversation-selector/conversation-selector.component';
 
 @Component({
   selector: 'wac-new-conversation',
   standalone: true,
-  imports: [],
+  imports: [
+    FaIconComponent,
+    FormsModule,
+    ConversationSelectorComponent],
   templateUrl: './new-conversation.component.html',
   styleUrl: './new-conversation.component.scss'
 })
@@ -47,6 +53,7 @@ export class NewConversationComponent implements OnInit, OnDestroy {
       .subscribe(usersState => {
         if (usersState.status === "OK" && usersState.value) {
           this.usersResults = usersState.value;
+          this.toastService.show("Hello toast", "SUCCESS")
         } else if (usersState.status === "ERROR") {
           this.toastService.show("Error occured when fetching search result, please try again", "DANGER");
         }
@@ -73,7 +80,7 @@ export class NewConversationComponent implements OnInit, OnDestroy {
   }
 
   handleConversation(userPublicId: string): void {
-   // todo this.conversationService.handleNavigateToConversation(userPublicId);
+    // todo this.conversationService.handleNavigateToConversation(userPublicId);
     this.activeOffCanvas.close();
   }
 
