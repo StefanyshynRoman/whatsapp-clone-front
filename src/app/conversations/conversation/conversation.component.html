@@ -18,7 +18,7 @@
             <div class="subtitle ellipsis">
               <div class="d-flex justify-content-start align-items-center"
                    [class.white-text]="hasUnreadMessage() || conversation().active">
-<!--            todo      <wac-send-state-display [message]="getLastMessage()!"></wac-send-state-display>-->
+                <wac-send-state-display [message]="getLastMessage()!"></wac-send-state-display>
                 @if (getLastMessage()?.type === "PICTURE") {
                   <fa-icon class="me-2" [icon]="'image'"></fa-icon>
                 } @else if (getLastMessage()?.type === "AUDIO") {

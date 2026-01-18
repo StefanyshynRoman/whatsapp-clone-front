@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import {Message} from "../model/message.model";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {NgbDropdown, NgbDropdownItem, NgbDropdownMenu, NgbDropdownToggle} from "@ng-bootstrap/ng-bootstrap";
+import {SendStateDisplayComponent} from '../../messages/send-state-display/send-state-display.component';
 
 @Component({
   selector: 'wac-conversation',
@@ -15,7 +16,8 @@ import {NgbDropdown, NgbDropdownItem, NgbDropdownMenu, NgbDropdownToggle} from "
     NgbDropdown,
     NgbDropdownToggle,
     NgbDropdownItem,
-    NgbDropdownMenu
+    NgbDropdownMenu,
+    SendStateDisplayComponent
   ],
   templateUrl: './conversation.component.html',
   styleUrl: './conversation.component.scss'
@@ -56,7 +58,7 @@ export class ConversationComponent {
     }
   }
 
-    computeTime() {
+  computeTime() {
     const lastMessage = this.getLastMessage();
     if (lastMessage) {
       return dayjs(lastMessage.sendDate).fromNow();
