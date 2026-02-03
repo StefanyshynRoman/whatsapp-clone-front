@@ -9,6 +9,7 @@ import {SearchQuery} from './model/user-search.model';
 import {FaIconComponent} from '@fortawesome/angular-fontawesome';
 import {FormsModule} from '@angular/forms';
 import {ConversationSelectorComponent} from './conversation-selector/conversation-selector.component';
+import {ConversationService} from '../../../conversations/conversation.service';
 
 @Component({
   selector: 'wac-new-conversation',
@@ -25,6 +26,7 @@ export class NewConversationComponent implements OnInit, OnDestroy {
   searchService = inject(UserSearchService);
   toastService = inject(ToastService);
   activeOffCanvas = inject(NgbActiveOffcanvas);
+  conversationService = inject(ConversationService);
 
   public query: string = "";
   public usersResults = new Array<BaseUser>();
@@ -80,7 +82,7 @@ export class NewConversationComponent implements OnInit, OnDestroy {
   }
 
   handleConversation(userPublicId: string): void {
-    // todo this.conversationService.handleNavigateToConversation(userPublicId);
+    this.conversationService.handleNavigateToConversation(userPublicId);
     this.activeOffCanvas.close();
   }
 

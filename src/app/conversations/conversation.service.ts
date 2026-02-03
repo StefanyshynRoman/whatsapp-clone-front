@@ -5,8 +5,8 @@ import {Subject} from "rxjs";
 import {createPaginationOption, Pagination, State} from "../shared/model/state.model";
 import {BaseUser, ConnectedUser} from "../shared/model/user.model";
 import dayjs from "dayjs";
-import { environment } from "../environments/environment";
-import { MessageMarkAsViewedResponse } from "./model/message.model";
+import {environment} from "../environments/environment";
+import {MessageMarkAsViewedResponse} from "./model/message.model";
 import {Conversation, ConversationToCreate} from './model/conversation.model';
 
 @Injectable({

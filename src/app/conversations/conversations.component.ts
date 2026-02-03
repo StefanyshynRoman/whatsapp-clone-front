@@ -72,7 +72,7 @@ export class ConversationsComponent implements OnInit, OnDestroy {
       this.deleteSSESub.unsubscribe();
     }
 
-    if(this.viewedMessageSSESub) {
+    if (this.viewedMessageSSESub) {
       this.viewedMessageSSESub.unsubscribe();
     }
   }
@@ -152,6 +152,7 @@ export class ConversationsComponent implements OnInit, OnDestroy {
     this.conversationService.handleMarkAsRead(conversation.publicId);
     this.conversationService.navigateToNewConversation(conversation);
   }
+
   //
   // private listenToSSEDeleteConversation(): void {
   //   this.deleteSSESub = this.sseService.deleteConversation.subscribe(uuidDeleted => {

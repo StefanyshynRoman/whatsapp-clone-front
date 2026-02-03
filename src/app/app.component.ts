@@ -14,6 +14,7 @@ import {NavbarComponent} from './layout/navbar/navbar.component';
 import {ToastService} from './shared/toast/toast.service';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import {ConversationsComponent} from './conversations/conversations.component';
 
 @Component({
   selector: 'wac-root',
@@ -28,7 +29,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
     FaIconComponent,
     AuthModalComponent,
     NavbarComponent,
-    NgbToast],
+    NgbToast, ConversationsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
