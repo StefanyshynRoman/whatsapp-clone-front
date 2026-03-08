@@ -98,7 +98,7 @@ export class SendComponent implements OnInit, OnDestroy {
     this.message += emoji.native;
   }
 
-  onClickEmojis(){
+  onClickEmojis() {
     this.showEmojis = !this.showEmojis;
     this.showMedia = false;
   }

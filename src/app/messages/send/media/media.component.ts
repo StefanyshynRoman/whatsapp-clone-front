@@ -16,7 +16,7 @@ export class MediaComponent {
 
   private extractFileFromTarget(target: EventTarget | null): File | null {
     const htmlInputTarget = target as HTMLInputElement;
-    if(target === null || htmlInputTarget.files === null) {
+    if (target === null || htmlInputTarget.files === null) {
       return null;
     }
     return htmlInputTarget.files[0];
@@ -24,7 +24,7 @@ export class MediaComponent {
 
   onUploadFile(target: EventTarget | null) {
     const file = this.extractFileFromTarget(target);
-    if(file !== null) {
+    if (file !== null) {
       this.onUpload.emit(file);
     }
   }
