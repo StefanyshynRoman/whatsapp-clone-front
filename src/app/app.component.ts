@@ -16,6 +16,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import {ConversationsComponent} from './conversations/conversations.component';
 import {HeaderComponent} from './layout/header/header.component';
+import {SendComponent} from './messages/send/send.component';
 
 @Component({
   selector: 'wac-root',
@@ -30,7 +31,7 @@ import {HeaderComponent} from './layout/header/header.component';
     FaIconComponent,
     AuthModalComponent,
     NavbarComponent,
-    NgbToast, ConversationsComponent, HeaderComponent],
+    NgbToast, ConversationsComponent, HeaderComponent, SendComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

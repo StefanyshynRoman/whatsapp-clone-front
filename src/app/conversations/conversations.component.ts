@@ -8,6 +8,7 @@ import {ConnectedUser} from "../shared/model/user.model";
 import {ConversationComponent} from "./conversation/conversation.component";
 import {Message} from "./model/message.model";
 import {SseService} from '../messages/service/see.service';
+import {MessageService} from '../messages/service/message.service';
 
 @Component({
   selector: 'wac-conversations',
@@ -24,7 +25,7 @@ export class ConversationsComponent implements OnInit, OnDestroy {
   toastService = inject(ToastService);
   oauth2Service = inject(Oauth2AuthService);
   sseService = inject(SseService);
-  //todo  messageService = inject(MessageService);
+  messageService = inject(MessageService);
 
   conversations = new Array<Conversation>();
   selectedConversation: Conversation | undefined;
@@ -174,10 +175,10 @@ export class ConversationsComponent implements OnInit, OnDestroy {
           conversationToUpdate.messages = new Array<Message>();
         }
         conversationToUpdate.messages.push(newMessage);
-        //const sender = this.messageService.extractSender(conversationToUpdate.members, newMessage.senderId!);
-        // if (this.oauth2Service.fetchUser().value!.publicId !== sender.publicId) {
-        //   this.toastService.show(`New message received from ${sender.firstName} ${sender.lastName}`, "SUCCESS");
-        // }
+        const sender = this.messageService.extractSender(conversationToUpdate.members, newMessage.senderId!);
+        if (this.oauth2Service.fetchUser().value!.publicId !== sender.publicId) {
+          this.toastService.show(`New message received from ${sender.firstName} ${sender.lastName}`, "SUCCESS");
+        }
       }
       this.conversationService.sortConversationByLastMessage(this.conversations);
     });
